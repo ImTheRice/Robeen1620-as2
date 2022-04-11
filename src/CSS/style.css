@@ -11,6 +11,12 @@
     --lrg-txt: 2.2rem;
 }
 
+.readable {
+    background-color: var(--not-green);
+    padding: 1em;
+    color: var(--not-white);
+}
+
 button {
     background-color: var(--not-red);
     border-style: none;
