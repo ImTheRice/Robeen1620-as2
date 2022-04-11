@@ -1,8 +1,4 @@
-const notes = [{
-    title: "first note",
-    noteBody: "this is an example note",
-    id: 1
-}]
+const notes = []
 
 const writingArea = document.querySelector(".write-note-area")
 
@@ -19,6 +15,8 @@ const newNote = `
 
 const plusButton = document.querySelector(".fa-solid.fa-circle-plus")
 plusButton.addEventListener('click', createNote)
+
+const sideNoteArea = document.querySelector(".notes-list")
 
 function canCreate() {
     return !(document.querySelector(".creation"))
@@ -50,14 +48,19 @@ function saveNotes() {
     const words = fullNote.split('\n')
     const titleName = (words[0])
     const content = words.splice(1).join('\n')
-
     const notePackage = {
         title: titleName,
         noteBody: content,
         id: notes.length + 1
     }
-
     notes.push(notePackage)
 
+    sendToSide(notePackage)
+
     clearNotes()
+}
+
+function sendToSide(notePackage) {
+    console.log(notePackage)
+    sideNoteArea.insertAdjacentHTML("beforeend", (`<li id ="${notePackage.id}">${notePackage.title}</li>`))
 }
