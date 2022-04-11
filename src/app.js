@@ -74,8 +74,8 @@ function openExistingNote(event) {
         const id = event.target.id
         const toRead = (notes[id - 1])
         readingArea.insertAdjacentHTML("beforeend",
-            `<div class=read-note><div class=readable><div>${toRead.title}</div>${toRead.noteBody}</div>
-        <div><button class=closeBTN>CLOSE</button></div></div>`)
+            `<div class=read-note><div class=readable><h1>${toRead.title}</h1><h2>${toRead.noteBody}</h2></div>
+            <div><button class=closeBTN>CLOSE</button></div></div>`)
 
         const closeButton = document.querySelector(".closeBTN")
         closeButton.addEventListener('click', closeExistingNote)
